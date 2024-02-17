@@ -1,0 +1,93 @@
+﻿<div class="container mt-4">
+    <div class="row">
+        <div class="d-flex justify-content-between flex-row-reverse align-items-center">
+            <h2 class="text-primary">Usuarios</h2>
+            @{
+                <h1>@User.Identity.Name</h1>
+            }
+            <h4 style="width: 263px;" class="d-flex justify-content-between">
+                <a class="btn-create" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#createUsuario_modal">
+                    <i class="fa-regular fa-plus"></i>
+                    Adicionar
+                </a>
+                <a class="excel d-none" style="cursor: pointer;">
+                    <i class="fa-regular fa-file-excel"></i>
+                    Excel
+                </a>
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="tabe-responsive">
+                        <table class="table table-centered w-100 dt-responsive nowrap" id="tblUsuarios">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Fecha</th>
+                                    <th>Sexo</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="createUsuario_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="primary-header-modalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 933px;">
+        <div class="modal-content">
+            <div class="modal-header modal-colored-header bg-primary">
+                <h4 class="modal-title" id="primary-header-modalLabel" style="color: white;">Crear Usuario</h4>
+                <button type="button" style="background-color: white;" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="tabe-responsive">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>Nombre</label>
+                                        <input type="text" placeholder="Nombre" autocomplete="off" id="txtNombre" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Fecha Nacimiento</label>
+                                        <input type="date" id="txtFechaNacimiento" autocomplete="off" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Sexo</label>
+                                        <select id="sSexo" class="form-control">
+                                            <option value="">Seleccione</option>
+                                            <option value="H">Hombre</option>
+                                            <option value="M">Mujer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="hiddenUser" value="0" />
+                <input type="button" class="btn btn-success mx-3 btnSave" value="Guardar" />
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/usuario.js"></script>
+}

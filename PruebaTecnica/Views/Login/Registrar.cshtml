@@ -1,0 +1,54 @@
+﻿@model List<string>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="row" style="height: 98vh; width: 100vw;">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h1>Registrar Usuario</h1>
+                    @{
+                        if (Model != null)
+                        {
+                            for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="text-start">
+                                    @Model[i]
+                                </div>
+                            }                            
+                        }
+                    }
+                </div>
+                <div class="card-body">
+                    <form method="post" id="formRegister" asp-action="Registrar" asp-controller="Login">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-group">
+                                    <label for="txtUserName">Usuario</label>
+                                    <input type="text" id="txtUserName" class="form-control" name="username" autocomplete="off" placeholder="UserName" />
+                                </div>
+                            </div>
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="col-md-12 mt-2">
+                                <div class="card-group">
+                                    <label for="txtPassword">Password</label>
+                                    <input type="password" id="txtPassword" class="form-control" name="password" autocomplete="off" placeholder="Password" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-grid gap-2 mt-3">
+                                <input type="submit" id="btnRegister" value="Registrar Usuario" class="btn btn-dark d-block" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/register.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
